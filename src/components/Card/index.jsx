@@ -3,7 +3,6 @@ import Modal from 'react-modal';
 
 import * as S from './styles'
 import { getPokemonByName, getPokemonSpecie } from '../../api';
-import { translateText } from '../../helpers/translate';
 
 Modal.setAppElement('#root');
 
@@ -17,7 +16,7 @@ const Card = ({ item }) => {
 
   const openModal = async () => {
     const data = await getPokemonByName(item.name)
-    const dataDescription = await getPokemonSpecie(item.name).then(res => translateText(res.flavor_text_entries[0].flavor_text))
+    const dataDescription = await getPokemonSpecie(item.name).then(res => res.flavor_text_entries[0].flavor_text)
     setSpecs(data)
     setDescription(dataDescription)
     setIsOpen(true);
