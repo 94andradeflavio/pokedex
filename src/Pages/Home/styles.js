@@ -14,8 +14,8 @@ export const Home = styled.section`
 export const ItensContainer = styled.div`
     width: 100%;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
     gap: .5rem;
+    flex-wrap: wrap;
 `

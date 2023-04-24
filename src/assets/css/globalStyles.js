@@ -63,7 +63,52 @@ const GlobalStyle = createGlobalStyle`
             h2 {  
                 font-size: ${props => props.theme.main.text.title};
                 text-transform: capitalize;
+                margin-bottom: 1rem;
+
+                & + p {
+                    margin-bottom: 1rem;
+                }
             }
+
+            h6 {
+                margin-bottom: .5rem;
+            }
+
+            .types {
+                display: flex;
+                gap: .5rem;
+                p {
+                    padding: .1rem .5rem;
+                    border-radius: 1rem;
+                    color: ${props => props.theme.main.color.white};
+                    font-weight: 700;
+                    &.normal { background-color: #a8a77a; }
+                    &.fire { background-color: #EE8130; }
+                    &.water { background-color: #6390F0; }
+                    &.electric { background-color: #f7d02c; }
+                    &.grass { background-color: #7ac74c; }
+                    &.ice { background-color: #96d9d6; }
+                    &.fighting { background-color: #c22e28; }
+                    &.poison { background-color: #a33ea1; }
+                    &.ground { background-color: #e2bf65; }
+                    &.flying { background-color: #a98ff3; }
+                    &.psychic { background-color: #f95587; }
+                    &.bug { background-color: #a6b91a; }
+                    &.rock { background-color: #b6a136; }
+                    &.ghost { background-color: #735797; }
+                    &.dragon { background-color: #6f35fc; }
+                    &.dark { background-color: #705746; }
+                    &.steel { background-color: #b7b7ce; }
+                    &.fairy { background-color: #d685ad; }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .main-modal-content {
+            flex-direction: column;
+            max-height: 100vh;
         }
     }
 `

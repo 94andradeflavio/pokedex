@@ -19,6 +19,11 @@ export const HeaderContent = styled.header`
         height: 100%;
         max-height: 3rem;
     }
+
+    @media screen and (max-width: 460px){
+        flex-direction: column;
+        gap: 1rem;
+    }
 `
 
 export const RightSide = styled.div`

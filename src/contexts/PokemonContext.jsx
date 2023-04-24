@@ -28,7 +28,7 @@ const PokemonProvider = ({ children }) => {
           const specieInfo = await getPokemonSpecie(item.name).then(res => {
             // console.log(res)
             const product = {
-                color: hexToRgb(colourNameToHex(res.color.name))
+                color: res.color.name !== 'white' ? hexToRgb(colourNameToHex(res.color.name)) : hexToRgb(colourNameToHex('silver'))
             }
             return product
           })

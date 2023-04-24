@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 
 import * as S from './styles'
 import { getPokemonByName, getPokemonSpecie } from '../../api';
+import Chart from './chart';
 
 Modal.setAppElement('#root');
 
@@ -10,6 +11,8 @@ const Card = ({ item }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [specs, setSpecs] = useState({})
   const [description, setDescription] = useState()
+  const [categories, setCategories] = useState()
+  const [baseStat, setBaseStat] = useState()
   const imgPath = `${ item.id }.gif`
 
   const relativePath = item.id <= 500 ? `src/assets/img/pokemonGif/${imgPath}` : item.img
@@ -25,6 +28,8 @@ const Card = ({ item }) => {
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     console.log(specs)
+    setCategories(specs.stats.map(stat => stat.stat.name))
+    setBaseStat(specs.stats.map(stat => stat.base_stat))
   }
 
   function closeModal() {
@@ -50,11 +55,17 @@ const Card = ({ item }) => {
             <img src={ relativePath } />
             <div className="text-area">
               <h2>{ item.name }</h2>
+              <p>{ description }</p>
+              <div className="chart">
+                <Chart 
+                  category={ categories } 
+                  baseStat={ baseStat }
+                  color={ item.specieInfo.color } />
+              </div>
+              <h6>Type:</h6>
               <div className="types">
-                <p>{ description }</p>
-                <h6>Type:</h6>
                 { specs.types.map(type => {
-                  return <p key={ type.type.name }>{ type.type.name }</p>
+                  return <p key={ type.type.name } className={ type.type.name }>{ type.type.name }</p>
                 }) }
               </div>
             </div>

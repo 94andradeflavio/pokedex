@@ -17,6 +17,7 @@ export const Card = styled.div`
     justify-content: flex-end;
 
     min-height: 17rem;
+    width: 300px;
 
 
     color: ${props => darken(.3, props.color)};
