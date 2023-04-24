@@ -15,7 +15,7 @@ const Card = ({ item }) => {
   const [baseStat, setBaseStat] = useState()
   const imgPath = `${ item.id }.gif`
 
-  const relativePath = item.id <= 500 ? `./src/assets/img/pokemonGif/${imgPath}` : item.img
+  const relativePath = item.id <= 500 ? `./public/assets/img/pokemonGif/${imgPath}` : item.img
 
   const openModal = async () => {
     const data = await getPokemonByName(item.name)
