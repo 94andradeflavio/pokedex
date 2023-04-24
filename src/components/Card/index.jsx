@@ -25,11 +25,11 @@ const Card = ({ item }) => {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
+  const afterOpenModal = async () => {
     // references are now sync'd and can be accessed.
     console.log(specs)
-    setCategories(specs.stats.map(stat => stat.stat.name))
-    setBaseStat(specs.stats.map(stat => stat.base_stat))
+    setCategories(specs.stats && specs.stats.map(stat => stat.stat.name))
+    setBaseStat(specs.stats && specs.stats.map(stat => stat.base_stat))
   }
 
   function closeModal() {

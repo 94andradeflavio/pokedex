@@ -54,7 +54,7 @@ const PokemonProvider = ({ children }) => {
     const loadSome = async name => {
         setLoad(true)
         const response = await getPokemonByName(name).then(async res => {
-            console.log(res)
+            
             const specieInfo = await getPokemonSpecie(name).then(res => {
                 const product = {
                     color: hexToRgb(colourNameToHex(res.color.name))

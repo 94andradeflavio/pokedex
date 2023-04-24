@@ -23,6 +23,10 @@ export const getPokemonByName = async name => {
 
     } catch (error) {
         console.error('Pokémon não encontrado', error)
+        return {
+            error: true,
+            text: `Impossível encontrar pokémon de nome ${ name }`
+        }
     }
 }
 

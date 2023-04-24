@@ -1,6 +1,6 @@
 import React from "react"
 import ReactApexChart from "react-apexcharts"
-import { opacify } from 'polished'
+import { opacify, darken } from 'polished'
 
 const Chart = ({ category, baseStat, color }) => {
     const options = {
@@ -8,9 +8,16 @@ const Chart = ({ category, baseStat, color }) => {
           text: 'Pokémon Stats'
         },
         xaxis: {
-          categories: category
+          categories: category ? category : []
         },
-        colors: [color],
+        yaxis: {
+            show: false,
+            floating: true,
+            labels: {
+                align: 'right'
+            }
+        },
+        colors: [darken(.1, color)],
         fill: {
             colors: [opacify(.5, color)]
         },
@@ -20,11 +27,18 @@ const Chart = ({ category, baseStat, color }) => {
             colors: [color],
             strokeWidth: 1,
         },
+        dataLabels: {
+            enabled: true,
+            background: {
+                enabled: true,
+                borderRadius:2,
+            }
+        }
     }
 
     const series = [{
         name: 'Status',
-        data: baseStat,
+        data: baseStat ? baseStat : [],
     }]
 
     return (
